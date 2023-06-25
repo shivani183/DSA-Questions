@@ -40,6 +40,12 @@ public class Queue {
 			q.rear.next = q.front;
 		}
 	}
+	static boolean isEmpty(Queue q) {
+		if (q.front == null)
+			return true;
+		else
+			return false;
+	}
 
 	static void display(Queue q) {
 		Node disp = q.front;
@@ -49,20 +55,26 @@ public class Queue {
 		}
 		System.out.println(disp.value);
 	}
-
 	public static void main(String args[]) {
 		Queue q = new Queue();
 		q.front = q.rear = null;
-		Enqueue(q, 34);
-		Enqueue(q, 3);
-		Enqueue(q, 8);
+		/*
+		 * Enqueue(q, 34); Enqueue(q, 3); Enqueue(q, 8);
+		 */
+		
 		Enqueue(q, 12);
 
 		System.out.println("Values are ::- ");
 		display(q);
+		System.out.println();
 		
 		Dequeue(q);
 		System.out.println("Values left ::- ");
 		display(q);
+		if(isEmpty(q))
+			System.out.println("queue is empty");
+		else
+			System.out.println("queue is not empty");
+			
 	}
 }
